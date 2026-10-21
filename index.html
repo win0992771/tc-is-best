@@ -1,0 +1,1612 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>منصة مسار التعليمية | التعليم الحديث في سوريا</title>
+<meta name="description" content="منصة مسار التعليمية - منصة تعليمية سورية رائدة تقدم تعليمًا مجانيًا عالي الجودة لجميع الفئات العمرية والتخصصات الجامعية، مع برامج دعم للطلاب المحتاجين.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#0d9488;
+    --primary-dark:#0f766e;
+    --primary-light:#5eead4;
+    --accent:#f59e0b;
+    --accent-dark:#d97706;
+    --dark:#0f172a;
+    --dark-2:#1e293b;
+    --gray:#64748b;
+    --light:#f8fafc;
+    --white:#ffffff;
+    --danger:#ef4444;
+    --gradient-1:linear-gradient(135deg,#0d9488 0%,#14b8a6 50%,#5eead4 100%);
+    --gradient-2:linear-gradient(135deg,#f59e0b 0%,#fbbf24 100%);
+    --gradient-3:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);
+    --shadow-sm:0 2px 8px rgba(15,23,42,.06);
+    --shadow-md:0 8px 24px rgba(15,23,42,.08);
+    --shadow-lg:0 20px 50px rgba(15,23,42,.12);
+    --radius:16px;
+    --radius-lg:24px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Cairo','Tajawal',sans-serif;
+    background:var(--light);
+    color:var(--dark);
+    line-height:1.7;
+    overflow-x:hidden;
+  }
+  a{text-decoration:none;color:inherit}
+  img{max-width:100%;display:block}
+  ul{list-style:none}
+
+  /* ===== TOP BAR ===== */
+  .topbar{
+    background:var(--dark);
+    color:#cbd5e1;
+    font-size:14px;
+    padding:8px 0;
+  }
+  .topbar-inner{
+    max-width:1280px;margin:0 auto;padding:0 24px;
+    display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;
+  }
+  .topbar-info{display:flex;gap:24px;flex-wrap:wrap}
+  .topbar-info span{display:flex;align-items:center;gap:6px}
+  .topbar-social{display:flex;gap:12px}
+  .topbar-social a{
+    width:28px;height:28px;border-radius:50%;
+    background:rgba(255,255,255,.08);
+    display:flex;align-items:center;justify-content:center;
+    transition:.3s;
+    font-size:13px;
+  }
+  .topbar-social a:hover{background:var(--primary);transform:translateY(-2px)}
+
+  /* ===== NAVBAR ===== */
+  .navbar{
+    position:sticky;top:0;z-index:100;
+    background:rgba(255,255,255,.95);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    box-shadow:var(--shadow-sm);
+    transition:.3s;
+  }
+  .navbar.scrolled{box-shadow:var(--shadow-md)}
+  .nav-inner{
+    max-width:1280px;margin:0 auto;padding:14px 24px;
+    display:flex;align-items:center;justify-content:space-between;gap:24px;
+  }
+  .logo{
+    display:flex;align-items:center;gap:10px;
+    font-weight:800;font-size:22px;color:var(--dark);
+  }
+  .logo-mark{
+    width:44px;height:44px;border-radius:12px;
+    background:var(--gradient-1);
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-size:20px;
+    box-shadow:0 6px 16px rgba(13,148,136,.35);
+  }
+  .logo span{color:var(--primary)}
+  .nav-links{display:flex;gap:6px;align-items:center}
+  .nav-links a{
+    padding:8px 14px;border-radius:8px;
+    font-weight:600;font-size:15px;color:var(--dark-2);
+    transition:.25s;
+  }
+  .nav-links a:hover{background:rgba(13,148,136,.08);color:var(--primary)}
+  .nav-cta{
+    padding:10px 22px !important;
+    background:var(--gradient-1) !important;
+    color:#fff !important;
+    border-radius:10px;
+    box-shadow:0 6px 16px rgba(13,148,136,.35);
+  }
+  .nav-cta:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(13,148,136,.45)}
+  .menu-toggle{display:none;background:none;border:none;font-size:26px;cursor:pointer;color:var(--dark)}
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;
+    padding:90px 24px 110px;
+    background:
+      radial-gradient(circle at 15% 20%,rgba(94,234,212,.25) 0%,transparent 45%),
+      radial-gradient(circle at 85% 80%,rgba(245,158,11,.18) 0%,transparent 45%),
+      linear-gradient(135deg,#f0fdfa 0%,#fefce8 100%);
+    overflow:hidden;
+  }
+  .hero::before{
+    content:'';position:absolute;inset:0;
+    background-image:
+      radial-gradient(circle,rgba(13,148,136,.08) 1px,transparent 1px);
+    background-size:32px 32px;
+    mask-image:radial-gradient(ellipse at center,#000 30%,transparent 70%);
+    -webkit-mask-image:radial-gradient(ellipse at center,#000 30%,transparent 70%);
+  }
+  .hero-inner{
+    max-width:1280px;margin:0 auto;
+    display:grid;grid-template-columns:1.1fr 1fr;
+    gap:60px;align-items:center;position:relative;z-index:1;
+  }
+  .hero-badge{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:8px 16px;border-radius:999px;
+    background:rgba(13,148,136,.1);
+    border:1px solid rgba(13,148,136,.25);
+    color:var(--primary-dark);
+    font-weight:700;font-size:14px;
+    margin-bottom:20px;
+  }
+  .hero-badge .dot{
+    width:8px;height:8px;border-radius:50%;background:var(--primary);
+    animation:pulse 1.8s infinite;
+  }
+  @keyframes pulse{
+    0%,100%{box-shadow:0 0 0 0 rgba(13,148,136,.6)}
+    50%{box-shadow:0 0 0 8px rgba(13,148,136,0)}
+  }
+  .hero h1{
+    font-size:clamp(32px,4.5vw,58px);
+    line-height:1.15;
+    font-weight:900;
+    letter-spacing:-.5px;
+    margin-bottom:22px;
+    color:var(--dark);
+  }
+  .hero h1 .highlight{
+    background:var(--gradient-1);
+    -webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+  .hero p.lead{
+    font-size:18px;color:var(--gray);
+    margin-bottom:32px;max-width:560px;
+  }
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:36px}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:14px 28px;border-radius:12px;
+    font-family:inherit;font-weight:700;font-size:16px;
+    cursor:pointer;border:none;transition:.3s;
+  }
+  .btn-primary{
+    background:var(--gradient-1);color:#fff;
+    box-shadow:0 10px 24px rgba(13,148,136,.35);
+  }
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(13,148,136,.45)}
+  .btn-outline{
+    background:#fff;color:var(--dark);
+    border:2px solid #e2e8f0;
+  }
+  .btn-outline:hover{border-color:var(--primary);color:var(--primary)}
+  .btn-accent{
+    background:var(--gradient-2);color:#fff;
+    box-shadow:0 10px 24px rgba(245,158,11,.35);
+  }
+  .btn-accent:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(245,158,11,.45)}
+
+  .hero-trust{
+    display:flex;gap:28px;align-items:center;flex-wrap:wrap;
+    padding-top:20px;border-top:1px solid rgba(15,23,42,.08);
+  }
+  .hero-trust div{display:flex;flex-direction:column}
+  .hero-trust strong{font-size:24px;font-weight:900;color:var(--dark)}
+  .hero-trust span{font-size:13px;color:var(--gray)}
+
+  .hero-visual{
+    position:relative;
+    height:520px;
+    border-radius:var(--radius-lg);
+    overflow:hidden;
+    box-shadow:var(--shadow-lg);
+  }
+  .hero-visual img{width:100%;height:100%;object-fit:cover}
+  .hero-visual::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(180deg,transparent 50%,rgba(15,23,42,.65) 100%);
+  }
+  .hero-float{
+    position:absolute;bottom:24px;right:24px;left:24px;
+    z-index:2;display:flex;gap:12px;flex-wrap:wrap;
+  }
+  .hero-float-card{
+    background:rgba(255,255,255,.96);
+    backdrop-filter:blur(10px);
+    padding:14px 18px;border-radius:14px;
+    display:flex;align-items:center;gap:10px;
+    font-weight:700;font-size:14px;
+    box-shadow:var(--shadow-md);
+  }
+  .hero-float-card .ico{
+    width:36px;height:36px;border-radius:10px;
+    background:var(--gradient-1);
+    display:flex;align-items:center;justify-content:center;
+    font-size:18px;
+  }
+  .hero-float-card.accent .ico{background:var(--gradient-2)}
+
+  /* ===== SECTION BASE ===== */
+  section{padding:90px 24px}
+  .container{max-width:1280px;margin:0 auto}
+  .section-head{text-align:center;max-width:720px;margin:0 auto 56px}
+  .section-tag{
+    display:inline-block;
+    padding:6px 16px;border-radius:999px;
+    background:rgba(13,148,136,.1);
+    color:var(--primary-dark);
+    font-weight:700;font-size:13px;
+    margin-bottom:14px;
+    letter-spacing:.5px;
+  }
+  .section-head h2{
+    font-size:clamp(28px,3.5vw,44px);
+    font-weight:900;line-height:1.2;
+    margin-bottom:16px;
+    color:var(--dark);
+  }
+  .section-head p{color:var(--gray);font-size:17px}
+
+  /* ===== STATS ===== */
+  .stats{
+    background:var(--gradient-3);
+    padding:70px 24px;
+    position:relative;overflow:hidden;
+  }
+  .stats::before{
+    content:'';position:absolute;top:-100px;right:-100px;
+    width:400px;height:400px;border-radius:50%;
+    background:radial-gradient(circle,rgba(13,148,136,.35) 0%,transparent 70%);
+  }
+  .stats::after{
+    content:'';position:absolute;bottom:-100px;left:-100px;
+    width:400px;height:400px;border-radius:50%;
+    background:radial-gradient(circle,rgba(245,158,11,.25) 0%,transparent 70%);
+  }
+  .stats-grid{
+    max-width:1280px;margin:0 auto;
+    display:grid;grid-template-columns:repeat(4,1fr);
+    gap:24px;position:relative;z-index:1;
+  }
+  .stat-card{
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:var(--radius);
+    padding:32px 24px;
+    text-align:center;
+    backdrop-filter:blur(10px);
+    transition:.3s;
+  }
+  .stat-card:hover{
+    background:rgba(255,255,255,.1);
+    transform:translateY(-4px);
+    border-color:rgba(94,234,212,.4);
+  }
+  .stat-card .ico{
+    width:56px;height:56px;border-radius:14px;
+    background:var(--gradient-1);
+    margin:0 auto 16px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:24px;
+    box-shadow:0 8px 20px rgba(13,148,136,.4);
+  }
+  .stat-card:nth-child(2) .ico{background:var(--gradient-2);box-shadow:0 8px 20px rgba(245,158,11,.4)}
+  .stat-card:nth-child(3) .ico{background:linear-gradient(135deg,#8b5cf6,#a78bfa);box-shadow:0 8px 20px rgba(139,92,246,.4)}
+  .stat-card:nth-child(4) .ico{background:linear-gradient(135deg,#ef4444,#f87171);box-shadow:0 8px 20px rgba(239,68,68,.4)}
+  .stat-num{
+    font-size:42px;font-weight:900;color:#fff;
+    line-height:1;margin-bottom:8px;
+  }
+  .stat-num span{color:var(--primary-light)}
+  .stat-card p{color:#94a3b8;font-size:15px;font-weight:500}
+
+  /* ===== ABOUT ===== */
+  .about{background:#fff}
+  .about-grid{
+    display:grid;grid-template-columns:1fr 1.1fr;
+    gap:64px;align-items:center;
+  }
+  .about-visual{
+    position:relative;
+    display:grid;grid-template-columns:1fr 1fr;gap:16px;
+  }
+  .about-visual img{
+    width:100%;height:220px;object-fit:cover;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow-md);
+  }
+  .about-visual img:first-child{margin-top:32px;height:260px}
+  .about-visual img:last-child{height:260px;margin-bottom:32px}
+  .about-badge{
+    position:absolute;top:50%;left:50%;
+    transform:translate(-50%,-50%);
+    background:#fff;padding:14px 20px;border-radius:14px;
+    box-shadow:var(--shadow-lg);
+    text-align:center;
+    z-index:2;
+  }
+  .about-badge strong{
+    display:block;font-size:28px;font-weight:900;
+    background:var(--gradient-1);
+    -webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;
+    line-height:1;
+  }
+  .about-badge span{font-size:12px;color:var(--gray);font-weight:600}
+  .about-content h2{
+    font-size:clamp(28px,3vw,40px);
+    font-weight:900;line-height:1.25;margin-bottom:20px;
+  }
+  .about-content > p{color:var(--gray);font-size:16px;margin-bottom:24px}
+  .about-features{display:grid;gap:16px;margin-bottom:28px}
+  .about-feature{
+    display:flex;gap:14px;align-items:flex-start;
+    padding:16px;border-radius:12px;
+    background:var(--light);
+    border:1px solid #e2e8f0;
+    transition:.3s;
+  }
+  .about-feature:hover{border-color:var(--primary);transform:translateX(-4px)}
+  .about-feature .check{
+    flex-shrink:0;
+    width:36px;height:36px;border-radius:10px;
+    background:rgba(13,148,136,.12);
+    color:var(--primary);
+    display:flex;align-items:center;justify-content:center;
+    font-weight:900;
+  }
+  .about-feature strong{display:block;font-size:16px;margin-bottom:4px;color:var(--dark)}
+  .about-feature p{font-size:14px;color:var(--gray);margin:0}
+
+  /* ===== AGE GROUPS ===== */
+  .age-groups{background:var(--light)}
+  .age-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:24px;
+  }
+  .age-card{
+    background:#fff;
+    border-radius:var(--radius-lg);
+    overflow:hidden;
+    box-shadow:var(--shadow-sm);
+    transition:.35s cubic-bezier(.4,0,.2,1);
+    position:relative;
+    display:flex;flex-direction:column;
+  }
+  .age-card:hover{
+    transform:translateY(-8px);
+    box-shadow:var(--shadow-lg);
+  }
+  .age-img{
+    height:200px;position:relative;overflow:hidden;
+  }
+  .age-img img{
+    width:100%;height:100%;object-fit:cover;
+    transition:.5s;
+  }
+  .age-card:hover .age-img img{transform:scale(1.08)}
+  .age-tag{
+    position:absolute;top:14px;right:14px;
+    background:rgba(255,255,255,.96);
+    backdrop-filter:blur(8px);
+    padding:6px 14px;border-radius:999px;
+    font-weight:800;font-size:13px;
+    color:var(--primary-dark);
+    box-shadow:var(--shadow-sm);
+  }
+  .age-body{padding:24px;flex:1;display:flex;flex-direction:column}
+  .age-body h3{
+    font-size:21px;font-weight:800;
+    margin-bottom:8px;color:var(--dark);
+  }
+  .age-body .range{
+    font-size:14px;color:var(--primary);
+    font-weight:700;margin-bottom:14px;
+    display:flex;align-items:center;gap:6px;
+  }
+  .age-body p{color:var(--gray);font-size:14px;margin-bottom:18px;flex:1}
+  .age-list{display:flex;flex-wrap:wrap;gap:8px}
+  .age-list span{
+    padding:5px 12px;border-radius:999px;
+    background:var(--light);
+    font-size:12px;font-weight:600;color:var(--dark-2);
+    border:1px solid #e2e8f0;
+  }
+
+  /* ===== MAJORS ===== */
+  .majors{background:#fff}
+  .majors-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:20px;
+  }
+  .major-card{
+    padding:28px 24px;border-radius:var(--radius);
+    background:var(--light);
+    border:1px solid #e2e8f0;
+    transition:.3s;
+    position:relative;overflow:hidden;
+  }
+  .major-card::before{
+    content:'';position:absolute;
+    top:0;right:0;width:0;height:4px;
+    background:var(--gradient-1);
+    transition:.4s;
+  }
+  .major-card:hover::before{width:100%}
+  .major-card:hover{
+    transform:translateY(-6px);
+    box-shadow:var(--shadow-md);
+    background:#fff;
+    border-color:transparent;
+  }
+  .major-icon{
+    width:56px;height:56px;border-radius:14px;
+    background:var(--gradient-1);
+    display:flex;align-items:center;justify-content:center;
+    font-size:26px;color:#fff;
+    margin-bottom:16px;
+    box-shadow:0 8px 20px rgba(13,148,136,.3);
+  }
+  .major-card:nth-child(2n) .major-icon{background:linear-gradient(135deg,#8b5cf6,#a78bfa);box-shadow:0 8px 20px rgba(139,92,246,.3)}
+  .major-card:nth-child(3n) .major-icon{background:var(--gradient-2);box-shadow:0 8px 20px rgba(245,158,11,.3)}
+  .major-card:nth-child(5n) .major-icon{background:linear-gradient(135deg,#ef4444,#f87171);box-shadow:0 8px 20px rgba(239,68,68,.3)}
+  .major-card h3{font-size:18px;font-weight:800;margin-bottom:8px}
+  .major-card p{font-size:14px;color:var(--gray);margin-bottom:14px;line-height:1.6}
+  .major-tags{display:flex;flex-wrap:wrap;gap:6px}
+  .major-tags span{
+    padding:3px 10px;border-radius:6px;
+    background:rgba(13,148,136,.08);
+    color:var(--primary-dark);
+    font-size:11px;font-weight:700;
+  }
+
+  /* ===== FREE BANNER ===== */
+  .free-banner{
+    padding:0 24px;
+    margin:60px auto;
+  }
+  .free-banner-inner{
+    max-width:1280px;margin:0 auto;
+    background:
+      radial-gradient(circle at 20% 50%,rgba(245,158,11,.35) 0%,transparent 50%),
+      radial-gradient(circle at 80% 50%,rgba(13,148,136,.3) 0%,transparent 50%),
+      var(--gradient-3);
+    border-radius:var(--radius-lg);
+    padding:70px 60px;
+    position:relative;overflow:hidden;
+    display:grid;grid-template-columns:1.2fr 1fr;
+    gap:40px;align-items:center;
+    box-shadow:var(--shadow-lg);
+  }
+  .free-banner-inner::before{
+    content:'';position:absolute;top:-50px;left:-50px;
+    width:200px;height:200px;border-radius:50%;
+    border:2px dashed rgba(94,234,212,.3);
+  }
+  .free-banner-inner::after{
+    content:'';position:absolute;bottom:-60px;right:-60px;
+    width:250px;height:250px;border-radius:50%;
+    background:radial-gradient(circle,rgba(245,158,11,.3) 0%,transparent 70%);
+  }
+  .free-banner-content{position:relative;z-index:1;color:#fff}
+  .free-banner-badge{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:6px 16px;border-radius:999px;
+    background:rgba(245,158,11,.2);
+    border:1px solid rgba(245,158,11,.4);
+    color:#fbbf24;font-weight:800;font-size:13px;
+    margin-bottom:20px;
+  }
+  .free-banner-content h2{
+    font-size:clamp(28px,3.5vw,44px);
+    font-weight:900;line-height:1.2;
+    margin-bottom:16px;
+  }
+  .free-banner-content h2 span{
+    background:var(--gradient-2);
+    -webkit-background-clip:text;background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+  .free-banner-content p{
+    color:#cbd5e1;font-size:17px;margin-bottom:28px;max-width:560px;
+  }
+  .free-banner-visual{
+    position:relative;z-index:1;
+    display:grid;grid-template-columns:1fr 1fr;gap:14px;
+  }
+  .free-banner-visual img{
+    width:100%;height:150px;object-fit:cover;
+    border-radius:14px;
+    border:2px solid rgba(255,255,255,.15);
+  }
+  .free-banner-visual img:first-child{grid-column:span 2;height:200px}
+
+  /* ===== AID SECTION ===== */
+  .aid{background:var(--light)}
+  .aid-grid{
+    display:grid;grid-template-columns:1fr 1.1fr;
+    gap:56px;align-items:center;
+  }
+  .aid-visual{position:relative}
+  .aid-visual img{
+    width:100%;height:480px;object-fit:cover;
+    border-radius:var(--radius-lg);
+    box-shadow:var(--shadow-lg);
+  }
+  .aid-float{
+    position:absolute;bottom:-24px;right:-24px;
+    background:#fff;padding:24px;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow-lg);
+    display:flex;align-items:center;gap:16px;
+    max-width:280px;
+  }
+  .aid-float .ico{
+    width:56px;height:56px;border-radius:14px;
+    background:linear-gradient(135deg,#ef4444,#f87171);
+    display:flex;align-items:center;justify-content:center;
+    font-size:26px;color:#fff;flex-shrink:0;
+  }
+  .aid-float strong{display:block;font-size:16px;color:var(--dark);margin-bottom:2px}
+  .aid-float span{font-size:13px;color:var(--gray)}
+  .aid-content h2{
+    font-size:clamp(28px,3vw,40px);
+    font-weight:900;line-height:1.25;margin-bottom:20px;
+  }
+  .aid-content > p{color:var(--gray);font-size:16px;margin-bottom:28px}
+  .aid-programs{display:grid;gap:14px;margin-bottom:32px}
+  .aid-program{
+    display:flex;gap:14px;align-items:flex-start;
+    padding:18px;border-radius:14px;
+    background:#fff;
+    border:1px solid #e2e8f0;
+    transition:.3s;
+  }
+  .aid-program:hover{
+    border-color:var(--accent);
+    box-shadow:0 8px 24px rgba(245,158,11,.12);
+    transform:translateX(-4px);
+  }
+  .aid-program .ico{
+    width:44px;height:44px;border-radius:12px;
+    background:var(--gradient-2);
+    display:flex;align-items:center;justify-content:center;
+    font-size:20px;color:#fff;flex-shrink:0;
+  }
+  .aid-program strong{display:block;font-size:16px;color:var(--dark);margin-bottom:3px}
+  .aid-program p{font-size:13px;color:var(--gray);margin:0}
+
+  /* ===== TESTIMONIALS ===== */
+  .testimonials{background:#fff}
+  .testi-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:24px;
+  }
+  .testi-card{
+    padding:32px 28px;
+    background:var(--light);
+    border-radius:var(--radius-lg);
+    position:relative;
+    transition:.3s;
+    border:1px solid #e2e8f0;
+  }
+  .testi-card:hover{
+    background:#fff;
+    box-shadow:var(--shadow-md);
+    transform:translateY(-4px);
+  }
+  .testi-quote{
+    font-size:60px;line-height:1;
+    color:var(--primary);
+    opacity:.25;
+    font-family:Georgia,serif;
+    margin-bottom:8px;
+  }
+  .testi-card p{
+    font-size:15px;color:var(--dark-2);
+    margin-bottom:24px;font-style:italic;
+    line-height:1.8;
+  }
+  .testi-author{display:flex;align-items:center;gap:12px}
+  .testi-avatar{
+    width:52px;height:52px;border-radius:50%;
+    background:var(--gradient-1);
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-weight:900;font-size:20px;
+    flex-shrink:0;
+  }
+  .testi-card:nth-child(2) .testi-avatar{background:linear-gradient(135deg,#8b5cf6,#a78bfa)}
+  .testi-card:nth-child(3) .testi-avatar{background:var(--gradient-2)}
+  .testi-author strong{display:block;font-size:15px;color:var(--dark)}
+  .testi-author span{font-size:13px;color:var(--gray)}
+
+  /* ===== CTA ===== */
+  .cta-section{
+    background:var(--gradient-1);
+    padding:80px 24px;
+    position:relative;overflow:hidden;
+    text-align:center;
+  }
+  .cta-section::before,.cta-section::after{
+    content:'';position:absolute;border-radius:50%;
+    border:2px dashed rgba(255,255,255,.15);
+  }
+  .cta-section::before{top:-80px;left:-80px;width:300px;height:300px}
+  .cta-section::after{bottom:-80px;right:-80px;width:400px;height:400px}
+  .cta-inner{max-width:760px;margin:0 auto;position:relative;z-index:1;color:#fff}
+  .cta-inner h2{
+    font-size:clamp(28px,3.5vw,44px);
+    font-weight:900;line-height:1.2;margin-bottom:16px;
+  }
+  .cta-inner p{font-size:18px;color:rgba(255,255,255,.9);margin-bottom:32px}
+  .cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .cta-actions .btn-white{
+    background:#fff;color:var(--primary-dark);
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+  }
+  .cta-actions .btn-white:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(0,0,0,.2)}
+  .cta-actions .btn-ghost{
+    background:rgba(255,255,255,.15);color:#fff;
+    border:2px solid rgba(255,255,255,.35);
+    backdrop-filter:blur(10px);
+  }
+  .cta-actions .btn-ghost:hover{background:rgba(255,255,255,.25)}
+
+  /* ===== CONTACT ===== */
+  .contact{background:var(--light)}
+  .contact-grid{
+    display:grid;grid-template-columns:1fr 1.2fr;
+    gap:48px;
+  }
+  .contact-info{display:flex;flex-direction:column;gap:20px}
+  .contact-card{
+    padding:24px;border-radius:var(--radius);
+    background:#fff;
+    box-shadow:var(--shadow-sm);
+    display:flex;gap:16px;align-items:flex-start;
+    transition:.3s;
+    border:1px solid #e2e8f0;
+  }
+  .contact-card:hover{
+    box-shadow:var(--shadow-md);
+    transform:translateY(-3px);
+  }
+  .contact-card .ico{
+    width:48px;height:48px;border-radius:12px;
+    background:var(--gradient-1);
+    display:flex;align-items:center;justify-content:center;
+    font-size:22px;color:#fff;flex-shrink:0;
+  }
+  .contact-card strong{display:block;font-size:16px;color:var(--dark);margin-bottom:4px}
+  .contact-card span{font-size:14px;color:var(--gray);direction:ltr;display:block;text-align:right}
+
+  .contact-form{
+    background:#fff;padding:40px;
+    border-radius:var(--radius-lg);
+    box-shadow:var(--shadow-md);
+  }
+  .contact-form h3{font-size:24px;font-weight:800;margin-bottom:8px}
+  .contact-form > p{color:var(--gray);font-size:14px;margin-bottom:24px}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+  .form-group{margin-bottom:16px}
+  .form-group label{
+    display:block;font-size:14px;font-weight:700;
+    color:var(--dark-2);margin-bottom:8px;
+  }
+  .form-group input,
+  .form-group textarea,
+  .form-group select{
+    width:100%;padding:12px 16px;
+    border:1.5px solid #e2e8f0;border-radius:10px;
+    font-family:inherit;font-size:15px;
+    background:var(--light);
+    transition:.25s;
+    color:var(--dark);
+  }
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus{
+    outline:none;
+    border-color:var(--primary);
+    background:#fff;
+    box-shadow:0 0 0 4px rgba(13,148,136,.1);
+  }
+  .form-group textarea{resize:vertical;min-height:100px}
+
+  /* ===== FOOTER ===== */
+  footer{
+    background:var(--dark);
+    color:#94a3b8;
+    padding:70px 24px 0;
+  }
+  .footer-inner{
+    max-width:1280px;margin:0 auto;
+    display:grid;
+    grid-template-columns:1.5fr 1fr 1fr 1.3fr;
+    gap:40px;
+    padding-bottom:50px;
+  }
+  .footer-col h4{
+    color:#fff;font-size:17px;font-weight:800;
+    margin-bottom:20px;position:relative;
+    padding-bottom:12px;
+  }
+  .footer-col h4::after{
+    content:'';position:absolute;bottom:0;right:0;
+    width:32px;height:3px;border-radius:2px;
+    background:var(--gradient-1);
+  }
+  .footer-col .logo{color:#fff;margin-bottom:16px}
+  .footer-col p{font-size:14px;line-height:1.8;margin-bottom:20px}
+  .footer-social{display:flex;gap:10px}
+  .footer-social a{
+    width:38px;height:38px;border-radius:10px;
+    background:rgba(255,255,255,.06);
+    display:flex;align-items:center;justify-content:center;
+    color:#94a3b8;font-size:16px;
+    transition:.3s;
+  }
+  .footer-social a:hover{background:var(--primary);color:#fff;transform:translateY(-3px)}
+  .footer-links{display:flex;flex-direction:column;gap:10px}
+  .footer-links a{
+    font-size:14px;color:#94a3b8;
+    transition:.25s;display:flex;align-items:center;gap:6px;
+  }
+  .footer-links a:hover{color:var(--primary-light);padding-right:4px}
+  .footer-links a::before{content:'›';color:var(--primary);font-weight:900}
+  .footer-contact li{
+    display:flex;gap:10px;align-items:flex-start;
+    font-size:14px;margin-bottom:12px;
+  }
+  .footer-contact .ico{color:var(--primary-light);flex-shrink:0;margin-top:3px}
+  .newsletter{display:flex;gap:8px;margin-top:12px}
+  .newsletter input{
+    flex:1;padding:11px 14px;
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:8px;
+    background:rgba(255,255,255,.05);
+    color:#fff;font-family:inherit;font-size:14px;
+  }
+  .newsletter input:focus{outline:none;border-color:var(--primary)}
+  .newsletter button{
+    padding:11px 18px;border-radius:8px;border:none;
+    background:var(--gradient-1);color:#fff;font-weight:700;
+    cursor:pointer;font-family:inherit;font-size:14px;
+    transition:.3s;
+  }
+  .newsletter button:hover{transform:translateY(-2px)}
+  .footer-bottom{
+    max-width:1280px;margin:0 auto;
+    padding:24px 0;border-top:1px solid rgba(255,255,255,.08);
+    display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;
+    font-size:13px;
+  }
+  .footer-bottom .heart{color:var(--danger)}
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width:1024px){
+    .hero-inner,.about-grid,.aid-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+    .hero-visual{height:400px}
+    .stats-grid{grid-template-columns:repeat(2,1fr)}
+    .footer-inner{grid-template-columns:1fr 1fr}
+    .free-banner-inner{grid-template-columns:1fr;padding:48px 32px}
+    .free-banner-visual img{height:120px}
+    .free-banner-visual img:first-child{height:160px}
+    .aid-float{right:auto;left:0;bottom:-20px}
+  }
+  @media (max-width:768px){
+    section{padding:70px 20px}
+    .topbar-info{display:none}
+    .topbar-inner{justify-content:center}
+    .nav-links{
+      display:none;
+      position:absolute;top:100%;right:0;left:0;
+      background:#fff;flex-direction:column;
+      padding:16px;gap:4px;
+      box-shadow:var(--shadow-md);
+      border-top:1px solid #e2e8f0;
+    }
+    .nav-links.open{display:flex}
+    .nav-links a{width:100%;text-align:center}
+    .menu-toggle{display:block}
+    .hero{padding:60px 20px 80px}
+    .hero-trust{gap:16px}
+    .hero-trust strong{font-size:20px}
+    .stats-grid{grid-template-columns:1fr 1fr;gap:14px}
+    .stat-card{padding:24px 16px}
+    .stat-num{font-size:32px}
+    .about-visual{grid-template-columns:1fr;gap:12px}
+    .about-visual img:first-child{margin-top:0}
+    .about-badge{position:relative;top:auto;left:auto;transform:none;display:inline-block;margin:-20px auto 0}
+    .contact-form{padding:28px 20px}
+    .form-row{grid-template-columns:1fr}
+    .footer-inner{grid-template-columns:1fr;text-align:center}
+    .footer-col h4::after{right:50%;transform:translateX(50%)}
+    .footer-col .logo{justify-content:center}
+    .footer-social{justify-content:center}
+    .footer-links a{justify-content:center}
+    .footer-contact li{justify-content:center;text-align:center}
+    .footer-bottom{justify-content:center;text-align:center}
+    .aid-float{max-width:240px;padding:16px;bottom:-16px;left:-8px}
+    .aid-float .ico{width:44px;height:44px;font-size:20px}
+  }
+
+  /* Reveal animation */
+  .reveal{opacity:0;transform:translateY(30px);transition:.8s cubic-bezier(.4,0,.2,1)}
+  .reveal.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<!-- ===== TOP BAR ===== -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-info">
+      <span>📍 دمشق، سوريا</span>
+      <span>✉️ info@masar-edu.sy</span>
+      <span>📞 +963 11 123 4567</span>
+    </div>
+    <div class="topbar-social">
+      <a href="#" title="فيسبوك">f</a>
+      <a href="#" title="إنستغرام">◉</a>
+      <a href="#" title="تويتر">𝕏</a>
+      <a href="#" title="لينكدإن">in</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">✦</span>
+      مسار<span>.</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#home">الرئيسية</a>
+      <a href="#about">من نحن</a>
+      <a href="#ages">الفئات العمرية</a>
+      <a href="#majors">التخصصات</a>
+      <a href="#free">التعليم المجاني</a>
+      <a href="#aid">الدعم والمساندة</a>
+      <a href="#contact">اتصل بنا</a>
+      <a href="#register" class="nav-cta">سجّل الآن</a>
+    </div>
+    <button class="menu-toggle" id="menuToggle">☰</button>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-content reveal">
+      <span class="hero-badge">
+        <span class="dot"></span>
+        منصة تعليمية سورية · مجانية بالكامل
+      </span>
+      <h1>نبني <span class="highlight">جيلًا جديدًا</span> من المتعلمين والمبدعين في سوريا</h1>
+      <p class="lead">
+        منصة "مسار" التعليمية تقدّم تعليمًا حديثًا وعالي الجودة لكل فئة عمرية — من الطفولة المبكرة حتى التعليم الجامعي والمهني — مع برامج دعم مجانية للطلاب المحتاجين في جميع المحافظات السورية.
+      </p>
+      <div class="hero-actions">
+        <a href="#register" class="btn btn-primary">ابدأ التعلّم مجانًا ←</a>
+        <a href="#aid" class="btn btn-outline">برامج الدعم والمساندة</a>
+      </div>
+      <div class="hero-trust">
+        <div><strong>+85,000</strong><span>طالب مسجّل</span></div>
+        <div><strong>+320</strong><span>دورة تعليمية</span></div>
+        <div><strong>14</strong><span>محافظة سورية</span></div>
+        <div><strong>100%</strong><span>مجاني</span></div>
+      </div>
+    </div>
+    <div class="hero-visual reveal">
+      <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80" alt="طلاب سوريون يتعلمون">
+      <div class="hero-float">
+        <div class="hero-float-card">
+          <span class="ico">📚</span>
+          تعليم مجاني
+        </div>
+        <div class="hero-float-card accent">
+          <span class="ico">🎓</span>
+          شهادات معتمدة
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STATS ===== -->
+<section class="stats">
+  <div class="stats-grid">
+    <div class="stat-card reveal">
+      <div class="ico">👥</div>
+      <div class="stat-num" data-count="85000">0</div>
+      <p>طالب وطالبة مسجّل</p>
+    </div>
+    <div class="stat-card reveal">
+      <div class="ico">📖</div>
+      <div class="stat-num" data-count="320">0</div>
+      <p>دورة ومادة تعليمية</p>
+    </div>
+    <div class="stat-card reveal">
+      <div class="ico">🎯</div>
+      <div class="stat-num" data-count="1400">0</div>
+      <p>منحة دراسية مجانية</p>
+    </div>
+    <div class="stat-card reveal">
+      <div class="ico">🌍</div>
+      <div class="stat-num" data-count="14">0</div>
+      <p>محافظة نخدمها</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual reveal">
+        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&q=80" alt="فصل دراسي">
+        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80" alt="تعلم تفاعلي">
+        <div class="about-badge">
+          <strong>2020</strong>
+          <span>سنة التأسيس</span>
+        </div>
+      </div>
+      <div class="about-content reveal">
+        <span class="section-tag">من نحن</span>
+        <h2>منصة سورية تأسست على إيمان راسخ بأن التعليم حق للجميع</h2>
+        <p>
+          "مسار" هي منصة تعليمية سورية تأسست عام 2020 على يد نخبة من الأكاديميين والمهندسين السوريين، بهدف سدّ الفجوة التعليمية التي خلّفتها الأزمة في سوريا. نؤمن بأن كل طفل وطالب سوري يستحق فرصة تعليمية عادلة وعالية الجودة، بغض النظر عن موقعه الجغرافي أو وضعه الاقتصادي.
+        </p>
+        <div class="about-features">
+          <div class="about-feature">
+            <div class="check">✓</div>
+            <div>
+              <strong>منهاج وطني معزّز</strong>
+              <p>محتويات تعليمية مطابقة للمناهج السورية مع إضافات عالمية حديثة في التفكير النقدي والبرمجة والمهارات الحياتية.</p>
+            </div>
+          </div>
+          <div class="about-feature">
+            <div class="check">✓</div>
+            <div>
+              <strong>أساتذة خبراء</strong>
+              <p>أكثر من 200 مدرّب وأستاذ جامعي سوري يقدّمون محتوى تفاعليًا عالي الجودة في مختلف المواد والتخصصات.</p>
+            </div>
+          </div>
+          <div class="about-feature">
+            <div class="check">✓</div>
+            <div>
+              <strong>وصول مجاني للجميع</strong>
+              <p>جميع الدورات الأساسية مجانية 100%، مع دعم خاص للطلاب المحتاجين يشمل الأجهزة والإنترنت والمنح الدراسية.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== AGE GROUPS ===== -->
+<section class="age-groups" id="ages">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag">الفئات العمرية</span>
+      <h2>مسار تعليمي متكامل لكل مرحلة عمرية</h2>
+      <p>من الطفولة المبكرة حتى التعليم المستمر — رحلة تعليمية شاملة مصممة بعناية لكل فئة عمرية في سوريا.</p>
+    </div>
+    <div class="age-grid">
+
+      <!-- 1 -->
+      <article class="age-card reveal">
+        <div class="age-img">
+          <img src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=600&q=80" alt="الطفولة المبكرة">
+          <span class="age-tag">3 - 5 سنوات</span>
+        </div>
+        <div class="age-body">
+          <h3>الطفولة المبكرة</h3>
+          <div class="range">🌱 الحضانة والتمهيدي</div>
+          <p>برامج تعليمية تفاعلية تنمّي الحواس واللغة والمهارات الحركية من خلال اللعب والقصة والأنشطة الإبداعية.</p>
+          <div class="age-list">
+            <span>الحروف والأرقام</span>
+            <span>القصص المصوّرة</span>
+            <span>الأناشيد</span>
+            <span>مهارات حركية</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2 -->
+      <article class="age-card reveal">
+        <div class="age-img">
+          <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=600&q=80" alt="المرحلة الابتدائية">
+          <span class="age-tag">6 - 11 سنة</span>
+        </div>
+        <div class="age-body">
+          <h3>المرحلة الابتدائية</h3>
+          <div class="range">📚 الصف الأول - السادس</div>
+          <p>تأسيس قوي في المواد الأساسية (عربي، رياضيات، علوم، إنجليزي) مع تنمية مهارات التفكير والإبداع.</p>
+          <div class="age-list">
+            <span>لغة عربية</span>
+            <span>رياضيات</span>
+            <span>علوم</span>
+            <span>إنجليزية</span>
+            <span>برمجة</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3 -->
+      <article class="age-card reveal">
+        <div class="age-img">
+          <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80" alt="المرحلة الإعدادية">
+          <span class="age-tag">12 - 14 سنة</span>
+        </div>
+        <div class="age-body">
+          <h3>المرحلة الإعدادية</h3>
+          <div class="range">🧪 الصف السابع - التاسع</div>
+          <p>تعميق المفاهيم العلمية والرياضية وتحضير مبكر للامتحانات الوطنية مع مهارات حياتية وتفكير نقدي.</p>
+          <div class="age-list">
+            <span>كيمياء</span>
+            <span>فيزياء</span>
+            <span>أحياء</span>
+            <span>رياضيات</span>
+            <span>مهارات حياتية</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4 -->
+      <article class="age-card reveal">
+        <div class="age-img">
+          <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=600&q=80" alt="المرحلة الثانوية">
+          <span class="age-tag">15 - 18 سنة</span>
+        </div>
+        <div class="age-body">
+          <h3>المرحلة الثانوية</h3>
+          <div class="range">🎯 العلمي والأدبي</div>
+          <p>تحضير شامل للبكالوريا السورية مع دورات مكثفة ومراجعات نهائية وأساتذة متخصصين لكل مادة.</p>
+          <div class="age-list">
+            <span>بكالوريا علمي</span>
+            <span>بكالوريا أدبي</span>
+            <span>رياضيات متقدمة</span>
+            <span>فيزياء</span>
+            <span>فلسفة</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 5 -->
+      <article class="age-card reveal">
+        <div class="age-img">
+          <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&q=80" alt="المرحلة الجامعية">
+          <span class="age-tag">18 - 24 سنة</span>
+        </div>
+        <div class="age-body">
+          <h3>المرحلة الجامعية</h3>
+          <div class="range">🎓 التعليم الجامعي</div>
+          <p>مرافقة أكاديمية لطلاب الجامعات السورية في جميع التخصصات مع دورات تقوية ومشاريع تطبيقية.</p>
+          <div class="age-list">
+            <span>طب</span>
+            <span>هندسة</span>
+            <span>حاسوب</span>
+            <span>اقتصاد</span>
+            <span>قانون</span>
+            <span>آداب</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 6 -->
+      <article class="age-card reveal">
+        <div class="age-img">
+          <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=600&q=80" alt="التعليم المستمر">
+          <span class="age-tag">25+ سنة</span>
+        </div>
+        <div class="age-body">
+          <h3>التعليم المستمر والمهني</h3>
+          <div class="range">🚀 تطوير مهني</div>
+          <p>دورات مهنية معتمدة ومهارات رقمية ولغات وريادة أعمال للشباب والموظفين الراغبين بتطوير مسارهم.</p>
+          <div class="age-list">
+            <span>تسويق رقمي</span>
+            <span>برمجة</span>
+            <span>لغات</span>
+            <span>ريادة أعمال</span>
+            <span>محاسبة</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== MAJORS ===== -->
+<section class="majors" id="majors">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag">التخصصات الجامعية</span>
+      <h2>مرافقة أكاديمية شاملة لجميع التخصصات الجامعية</h2>
+      <p>محتوى متخصص ودورات تقوية في كل كلية وتخصص جامعي في الجامعات السورية الحكومية والخاصة.</p>
+    </div>
+    <div class="majors-grid">
+
+      <article class="major-card reveal">
+        <div class="major-icon">🩺</div>
+        <h3>الطب والعلوم الصحية</h3>
+        <p>تحضير لاختبارات كليات الطب وطب الأسنان والصيدلة والتمريض مع مراجع ومحاضرات متخصصة.</p>
+        <div class="major-tags">
+          <span>طب بشري</span><span>طب أسنان</span><span>صيدلة</span><span>تمريض</span>
+        </div>
+      </article>
+
+      <article class="major-card reveal">
+        <div class="major-icon">⚙️</div>
+        <h3>الهندسة</h3>
+        <p>دورات تقوية في الرياضيات الهندسية والفيزياء والرسم الهندسي لجميع فروع الهندسة.</p>
+        <div class="major-tags">
+          <span>مدنية</span><span>معمارية</span><span>كهربائية</span><span>ميكانيكية</span><span>معلوماتية</span>
+        </div>
+      </article>
+
+      <article class="major-card reveal">
+        <div class="major-icon">💻</div>
+        <h3>تكنولوجيا المعلومات والذكاء الاصطناعي</h3>
+        <p>مسارات عملية في البرمجة وتطوير الويب والذكاء الاصطناعي وعلم البيانات بمناهج عالمية معرّبة.</p>
+        <div class="major-tags">
+          <span>هندسة معلوماتية</span><span>ذكاء اصطناعي</span><span>أمن سيبراني</span><span>علم البيانات</span>
+        </div>
+      </article>
+
+      <article class="major-card reveal">
+        <div class="major-icon">📊</div>
+        <h3>إدارة الأعمال والاقتصاد</h3>
+        <p>برامج في المحاسبة والتمويل والتسويق وإدارة المشاريع مع شهادات معتمدة وتطبيقات عملية.</p>
+        <div class="major-tags">
+          <span>محاسبة</span><span>تمويل</span><span>تسويق</span><span>إدارة أعمال</span>
+        </div>
+      </article>
+
+      <article class="major-card reveal">
+        <div class="major-icon">⚖️</div>
+        <h3>القانون والعلوم السياسية</h3>
+        <p>مراجعات متخصصة في القانون السوري والدولي والعلوم السياسية مع ندوات تفاعلية.</p>
+        <div class="major-tags">
+          <span>حقوق</span><span>علوم سياسية</span><span>علاقات دولية</span>
+        </div>
+      </article>
+
+      <article class="major-card reveal">
+        <div class="major-icon">📚</div>
+        <h3>الآداب والعلوم الإنسانية</h3>
+        <p>تخصصات اللغة العربية والأجنبية والتاريخ والجغرافيا والفلسفة وعلم النفس والاجتماع.</p>
+        <div class="major-tags">
+          <span>لغة عربية</span><span>إنجليزية</span><span>تاريخ</span><span>فلسفة</span><span>علم نفس</span>
+        </div>
+      </article>
+
+      <article class="major-card reveal">
+        <div class="major-icon">🎨</div>
+        <h3>الفنون والتصميم</h3>
+        <p>دورات في التصميم الجرافيكي والرسم والموسيقى والتصوير والتصميم الداخلي بمشاريع تطبيقية.</p>
+        <div class="major-tags">
+          <span>تصميم جرافيك</span><span>رسم</span><span>تصميم داخلي</span><span>موسيقى</span>
+        </div>
+      </article>
+
+      <article class="major-card reveal">
+        <div class="major-icon">🧑‍🏫</div>
+        <h3>التربية والتعليم</h3>
+        <p>إعداد المعلمين وتأهيلهم بأحدث طرق التدريس الحديثة وعلم النفس التربوي والتقنيات التعليمية.</p>
+        <div class="major-tags">
+          <span>معلم صف</span><span>تربية خاصة</span><span>طفولة مبكرة</span>
+        </div>
+      </article>
+
+      <article class="major-card reveal">
+        <div class="major-icon">🔬</div>
+        <h3>العلوم الطبيعية</h3>
+        <p>تخصصات الرياضيات والفيزياء والكيمياء والأحياء والجيولوجيا مع مختبرات افتراضية تفاعلية.</p>
+        <div class="major-tags">
+          <span>رياضيات</span><span>فيزياء</span><span>كيمياء</span><span>أحياء</span>
+        </div>
+      </article>
+
+      <article class="major-card reveal">
+        <div class="major-icon">🌾</div>
+        <h3>الزراعة والبيئة</h3>
+        <p>برامج في الهندسة الزراعية والعلوم البيئية والإنتاج الحيواني والزراعة المستدامة.</p>
+        <div class="major-tags">
+          <span>هندسة زراعية</span><span>علوم بيئية</span><span>إنتاج حيواني</span>
+        </div>
+      </article>
+
+      <article class="major-card reveal">
+        <div class="major-icon">📡</div>
+        <h3>الإعلام والاتصال</h3>
+        <p>تدريب على الصحافة والإعلام الرقمي والإنتاج الإذاعي والتلفزيوني وصناعة المحتوى.</p>
+        <div class="major-tags">
+          <span>صحافة</span><span>إعلام رقمي</span><span>إنتاج تلفزيوني</span>
+        </div>
+      </article>
+
+      <article class="major-card reveal">
+        <div class="major-icon">🏥</div>
+        <h3>العلوم الطبية المساندة</h3>
+        <p>تخصصات المختبرات الطبية والتصوير الشعاعي والعلاج الطبيعي والتغذية العلاجية.</p>
+        <div class="major-tags">
+          <span>مختبرات</span><span>تصوير شعاعي</span><span>علاج طبيعي</span><span>تغذية</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== FREE BANNER ===== -->
+<div class="free-banner" id="free">
+  <div class="free-banner-inner reveal">
+    <div class="free-banner-content">
+      <span class="free-banner-badge">✦ تعليم مجاني 100%</span>
+      <h2>التعليم حق للجميع.<br>وهنا نجعله <span>مجانيًا بالكامل</span>.</h2>
+      <p>
+        نؤمن أن الظروف الاقتصادية الصعبة في سوريا لا يجب أن تحرم أي طالب من حقه في التعليم. لذلك فإن جميع دوراتنا الأساسية والمراجعات النهائية والامتحانات التجريبية مجانية تمامًا — بدون أي رسوم خفية أو اشتراكات إلزامية.
+      </p>
+      <div class="cta-actions" style="justify-content:flex-start">
+        <a href="#register" class="btn btn-accent">احصل على حسابك المجاني</a>
+        <a href="#aid" class="btn btn-ghost" style="color:#fff;border:2px solid rgba(255,255,255,.3);background:rgba(255,255,255,.1)">برامج الدعم</a>
+      </div>
+    </div>
+    <div class="free-banner-visual">
+      <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80" alt="تعليم مجاني">
+      <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=400&q=80" alt="طلاب">
+      <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=400&q=80" alt="تخرج">
+    </div>
+  </div>
+</div>
+
+<!-- ===== AID SECTION ===== -->
+<section class="aid" id="aid">
+  <div class="container">
+    <div class="aid-grid">
+      <div class="aid-visual reveal">
+        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=800&q=80" alt="مساعدة المحتاجين">
+        <div class="aid-float">
+          <div class="ico">❤️</div>
+          <div>
+            <strong>+1,400 منحة</strong>
+            <span>قُدّمت للطلاب المحتاجين</span>
+          </div>
+        </div>
+      </div>
+      <div class="aid-content reveal">
+        <span class="section-tag">الدعم والمساندة</span>
+        <h2>برامج دعم شاملة للطلاب المحتاجين والمتضررين</h2>
+        <p>
+          لا نكتفي بتقديم المحتوى المجاني، بل نمتد لمساعدة الطلاب الأكثر احتياجًا في سوريا من خلال حزمة برامج دعم متكاملة تشمل المنح الدراسية، والدعم التقني، والمساعدات المادية، والدعم النفسي والاجتماعي.
+        </p>
+        <div class="aid-programs">
+
+          <div class="aid-program">
+            <div class="ico">🎓</div>
+            <div>
+              <strong>منح دراسية كاملة</strong>
+              <p>تغطية رسوم التسجيل الجامعي والمفاضلات لطلاب البكالوريا المتفوقين من الأسر المتعففة.</p>
+            </div>
+          </div>
+
+          <div class="aid-program">
+            <div class="ico">💻</div>
+            <div>
+              <strong>دعم تقني وتوفير أجهزة</strong>
+              <p>توزيع أجهزة لوحية وهواتف ذكية وشرائح إنترنت مجانية للطلاب الذين لا يملكون وسيلة للتعلم عن بُعد.</p>
+            </div>
+          </div>
+
+          <div class="aid-program">
+            <div class="ico">🍞</div>
+            <div>
+              <strong>مساعدات مادية وغذائية</strong>
+              <p>سلال غذائية شهرية ومساعدات مالية للأسر الطلابية الأشد احتياجًا خلال فترة الامتحانات.</p>
+            </div>
+          </div>
+
+          <div class="aid-program">
+            <div class="ico">🧠</div>
+            <div>
+              <strong>دعم نفسي واجتماعي</strong>
+              <p>جلسات إرشاد نفسي مجانية للطلاب المتضررين من الأزمة، وبرامج دعم للطلاب ذوي الاحتياجات الخاصة.</p>
+            </div>
+          </div>
+
+          <div class="aid-program">
+            <div class="ico">🏫</div>
+            <div>
+              <strong>مراكز تعليمية مجانية</strong>
+              <p>مراكز حضورية مجانية في دمشق وحلب وحمص واللاذقية توفر قاعات دراسة وحواسيب وإنترنت.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="testimonials">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag">قصص نجاح</span>
+      <h2>آراء طلابنا وشهاداتهم</h2>
+      <p>آلاف القصص الملهمة لطلاب سوريين غيّرت "مسار" مستقبلهم التعليمي.</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-quote">"</div>
+        <p>بفضل منصة مسار حصلت على منحة كاملة لدراسة الطب، وتجاوزت صعوبات البكالوريا بفضل الدروس المجانية والمراجعات المكثفة. أنا الآن في السنة الثانية بكلية الطب بجامعة دمشق.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">س</div>
+          <div>
+            <strong>سارة الحمصي</strong>
+            <span>طالبة طب - جامعة دمشق</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-quote">"</div>
+        <p>حصلت على جهاز لوحي من برنامج الدعم التقني، وكان السبب الأول في استمراري بالتعلم أثناء ظروف صعبة. الآن أدرس هندسة المعلوماتية وحققت حلمي بفضل الله ثم بفضل فريق مسار.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">م</div>
+          <div>
+            <strong>محمد العلي</strong>
+            <span>طالب هندسة معلوماتية - جامعة حلب</span>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-quote">"</div>
+        <p>بنتي في الصف السادس، والدورات التفاعلية في مسار جعلتها تحب الرياضيات بعد أن كانت تكرهها. المحتوى ممتاز والمعلمون متعاونون جدًا، والخدمة كلها مجانية — شكرًا لكم.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">أ</div>
+          <div>
+            <strong>أم يوسف</strong>
+            <span>ولية أمر - حمص</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta-section" id="register">
+  <div class="cta-inner reveal">
+    <h2>ابدأ رحلتك التعليمية اليوم — مجانًا بالكامل</h2>
+    <p>انضم إلى أكثر من 85,000 طالب وطالبة سوريين يتعلمون على منصة مسار. سجّل الآن في أقل من دقيقة.</p>
+    <div class="cta-actions">
+      <a href="#contact" class="btn btn-white">سجّل مجانًا الآن ←</a>
+      <a href="#aid" class="btn btn-ghost">تقدّم لطلب دعم</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag">تواصل معنا</span>
+      <h2>هل لديك سؤال أو ترغب بالتسجيل؟</h2>
+      <p>فريقنا جاهز لمساعدتك والإجابة على جميع استفساراتك خلال 24 ساعة.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="contact-card">
+          <div class="ico">📍</div>
+          <div>
+            <strong>العنوان</strong>
+            <span>دمشق - المزة - شارع الجلاء - بناء الأكاديمية</span>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="ico">📞</div>
+          <div>
+            <strong>الهاتف</strong>
+            <span>+963 11 123 4567</span>
+            <span>+963 944 123 456 (واتساب)</span>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="ico">✉️</div>
+          <div>
+            <strong>البريد الإلكتروني</strong>
+            <span>info@masar-edu.sy</span>
+            <span>support@masar-edu.sy</span>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="ico">🕐</div>
+          <div>
+            <strong>ساعات العمل</strong>
+            <span>الأحد - الخميس: 9 صباحًا - 6 مساءً</span>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact-form reveal" onsubmit="event.preventDefault(); this.reset(); alert('شكرًا لتواصلك معنا! سنرد عليك خلال 24 ساعة.');">
+        <h3>نموذج التسجيل والتواصل</h3>
+        <p>املأ البيانات التالية وسيتواصل معك فريقنا في أقرب وقت.</p>
+        <div class="form-row">
+          <div class="form-group">
+            <label>الاسم الكامل</label>
+            <input type="text" required placeholder="اسمك الثلاثي">
+          </div>
+          <div class="form-group">
+            <label>رقم الهاتف</label>
+            <input type="tel" required placeholder="+963 9XX XXX XXX">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>البريد الإلكتروني</label>
+            <input type="email" required placeholder="you@example.com">
+          </div>
+          <div class="form-group">
+            <label>المحافظة</label>
+            <select required>
+              <option value="">اختر المحافظة</option>
+              <option>دمشق</option><option>ريف دمشق</option><option>حلب</option>
+              <option>حمص</option><option>حماة</option><option>اللاذقية</option>
+              <option>طرطوس</option><option>إدلب</option><option>دير الزور</option>
+              <option>الرقة</option><option>الحسكة</option><option>درعا</option>
+              <option>السويداء</option><option>القنيطرة</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>الفئة المستهدفة</label>
+          <select required>
+            <option value="">اختر الفئة</option>
+            <option>طالب في مرحلة الطفولة المبكرة</option>
+            <option>طالب في المرحلة الابتدائية</option>
+            <option>طالب في المرحلة الإعدادية</option>
+            <option>طالب في المرحلة الثانوية (بكالوريا)</option>
+            <option>طالب جامعي</option>
+            <option>خريج / تعليم مستمر</option>
+            <option>ولي أمر</option>
+            <option>أرغب بالتقديم على برنامج دعم</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>رسالتك</label>
+          <textarea placeholder="اكتب استفسارك أو رسالتك هنا..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">إرسال الطلب ←</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <a href="#" class="logo">
+        <span class="logo-mark">✦</span>
+        مسار<span>.</span>
+      </a>
+      <p>
+        منصة تعليمية سورية غير ربحية، تقدم تعليمًا حديثًا عالي الجودة ومجانيًا لجميع الفئات العمرية، مع برامج دعم شاملة للطلاب المحتاجين في جميع المحافظات السورية.
+      </p>
+      <div class="footer-social">
+        <a href="#" title="فيسبوك">f</a>
+        <a href="#" title="إنستغرام">◉</a>
+        <a href="#" title="تويتر">𝕏</a>
+        <a href="#" title="يوتيوب">▶</a>
+        <a href="#" title="لينكدإن">in</a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>روابط سريعة</h4>
+      <div class="footer-links">
+        <a href="#about">من نحن</a>
+        <a href="#ages">الفئات العمرية</a>
+        <a href="#majors">التخصصات الجامعية</a>
+        <a href="#free">التعليم المجاني</a>
+        <a href="#aid">برامج الدعم</a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>التعليم</h4>
+      <div class="footer-links">
+        <a href="#ages">المرحلة الابتدائية</a>
+        <a href="#ages">المرحلة الإعدادية</a>
+        <a href="#ages">البكالوريا</a>
+        <a href="#majors">الجامعة</a>
+        <a href="#ages">التعليم المهني</a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>تواصل معنا</h4>
+      <ul class="footer-contact">
+        <li><span class="ico">📍</span> دمشق - المزة - شارع الجلاء</li>
+        <li><span class="ico">📞</span> +963 11 123 4567</li>
+        <li><span class="ico">✉️</span> info@masar-edu.sy</li>
+      </ul>
+      <h4 style="margin-top:20px">النشرة البريدية</h4>
+      <p style="font-size:13px;margin-bottom:8px">اشترك ليصلك جديد الدورات والمنح.</p>
+      <form class="newsletter" onsubmit="event.preventDefault(); this.reset(); alert('تم الاشتراك بنجاح!');">
+        <input type="email" placeholder="بريدك الإلكتروني" required>
+        <button type="submit">اشترك</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© 2026 منصة مسار التعليمية. جميع الحقوق محفوظة.</span>
+    <span>صُنع بـ <span class="heart">❤</span> في سوريا — من أجل مستقبل أفضل</span>
+  </div>
+</footer>
+
+<script>
+  // Navbar scroll effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Mobile menu toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+
+  // Reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Counter animation
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseInt(el.dataset.count, 10);
+        const duration = 1800;
+        const start = performance.now();
+        const step = (now) => {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const current = Math.floor(eased * target);
+          el.textContent = current.toLocaleString('en-US') + (current < target ? '' : '+');
+          if (progress < 1) requestAnimationFrame(step);
+          else el.textContent = target.toLocaleString('en-US') + '+';
+        };
+        requestAnimationFrame(step);
+        counterObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.stat-num').forEach(el => counterObserver.observe(el));
+</script>
+</body>
+</html>
